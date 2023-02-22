@@ -1,0 +1,59 @@
+@font-face {
+    font-family: Roboto-Bold;
+    src:url("../fonts/RobotoCondensed-Bold.ttf")
+}
+
+#container_1 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 500px;
+    margin-top: 40px;
+}
+
+header {
+    text-align: center;
+    font-family: Roboto-Regular;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.inputfeelds > p {
+    font-family: Roboto-Regular;
+    font-size: 18px;
+}
+
+input {
+    width: 97.5%;
+    height: 25px;
+}
+
+.feedback_log_in {
+    font-family: Roboto-Regular;
+    text-align: center;
+}
+
+.login_button {
+    font-family: Roboto-Regular;
+    font-size: 20px;
+    height: 55px;
+}
+
+
+
+.register_link {
+    text-decoration: underline;
+    font-family: Roboto-Regular;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
