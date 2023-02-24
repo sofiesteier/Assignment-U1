@@ -3,12 +3,22 @@
     src:url("../fonts/RobotoCondensed-Bold.ttf")
 }
 
+.background_login {
+    background: linear-gradient(0deg, rgba(131,58,180,1) 16%, rgba(200,32,32,1) 44%, rgba(252,176,69,1) 76%);
+}
+
+.background_register {
+    background: linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(200,32,32,1) 0%, rgba(252,176,69,1) 92%);
+    transition: 0.2s ease; 
+}
+
 #container_1 {
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
 
-    height: 500px;
+    height: 550px;
     margin-top: 40px;
 }
 
@@ -34,10 +44,17 @@ input {
     text-align: center;
 }
 
-.login_button {
+.login_button, 
+.register_button {
     font-family: Roboto-Regular;
     font-size: 20px;
     height: 55px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.register_button {
+    display: none;
 }
 
 
@@ -48,7 +65,10 @@ input {
     font-size: 18px;
     text-align: center;
     margin-top: 50px;
+    cursor: pointer;
 }
+
+
 
 
 

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/quiz.css">
 </head>
 <body>
-    <div id="wrapper">
+    <div id="wrapper" class="background_login">
         <div class="top_text">
             <img src="media/logo.png" alt="Dog logo">
             <p>Dog Breed Quiz</p>
@@ -18,11 +18,14 @@
         <div id="container_1">
             <header>LOGIN</header>
             <div class="inputfeelds">
-                <p>User Name: <br> <input type="text"></p>
-                <p>Password: <br> <input type="password"></p>
+                <p class="username">User Name: <br> <input type="text"></p>
+                <p class="password">Password: <br> <input type="password"></p>
             </div>
             <p class="feedback_log_in">Let the magic start!</p>
-            <button class="login_button">Login</button>
+            <div id="button">
+                <button class="login_button">Login</button>
+                <button class="register_button">Register</button>
+            </div>
             <p class="register_link">New to this? Register for free</p>
             
             
@@ -37,6 +40,6 @@
     <script src="js/server_connection.js"></script>
     <script src="js/login_register.js"></script>
     <script src="js/quiz.js"></script>
-    <script src="js/index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
