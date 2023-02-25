@@ -39,7 +39,8 @@ input {
     height: 25px;
 }
 
-.feedback_log_in {
+.feedback_login {
+    padding: 5px;
     font-family: Roboto-Regular;
     text-align: center;
 }

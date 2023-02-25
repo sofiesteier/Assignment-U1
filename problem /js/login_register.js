@@ -5,16 +5,16 @@ async function login () {
     const username = document.querySelector(".username input").value;
     const password = document.querySelector(".password input").value;       
     
-    const response = await send_request(`?action=check_credentials&user_name=${username}&password=${password}`);
+    const response = await send_request(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${username}&password=${password}`);
         
-    if(response.status === 404) {
-        console.log("fel inlogg");
-    } else if(response.status === 418) {
-        console.log(response.statusText);
-    } else {
-        const resource = await response.json();
-        console.log(response.status);
-    }
+    if(response.ok) {
+        console.log("rätt inlogg");
+    } else if (response.status === 404) {
+        document.querySelector(".feedback_login").textContent = "Wrong user name or password."
+        document.querySelector(".feedback_login").style.backgroundColor = "white";
+     } else if (response.status === 418) {
+        create_statusCode("The server thinks it's not a teapot!")
+    }    
 }
 
 function register_layout () {
@@ -25,7 +25,7 @@ function register_layout () {
     document.querySelector(".login_here_link").style.display = "block";
 
 
-    document.querySelector(".feedback_log_in").textContent = "Ready when you are..."
+    document.querySelector(".feedback_login").textContent = "Ready when you are..."
     document.querySelector("#wrapper").classList.toggle("background_login");
     document.querySelector("#wrapper").classList.add("background_register");
 
@@ -42,7 +42,7 @@ function login_layout () {
     document.querySelector(".login_here_link").style.display = "none";
 
 
-    document.querySelector(".feedback_log_in").textContent = "Let the magic start!"
+    document.querySelector(".feedback_login").textContent = "Let the magic start!"
     document.querySelector("#wrapper").classList.add("background_login");
     document.querySelector("#wrapper").classList.remove("background_register");
 }
@@ -50,8 +50,6 @@ function login_layout () {
 
 
 async function register () {
-
-    
     
     try {
         const contacting_server = document.querySelector(".contacting_server");
