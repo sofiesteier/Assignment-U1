@@ -57,13 +57,18 @@ input {
     display: none;
 }
 
-.register_link {
+.register_here_link,
+.login_here_link {
     text-decoration: underline;
     font-family: Roboto-Regular;
     font-size: 18px;
     text-align: center;
     margin-top: 50px;
     cursor: pointer;
+}
+
+.login_here_link {
+    display: none;
 }
 
 .box {

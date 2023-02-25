@@ -20,18 +20,31 @@ async function login () {
 function register_layout () {
 
     document.querySelector(".login_button").style.display = "none";
+    document.querySelector(".register_here_link").style.display = "none";
     document.querySelector(".register_button").style.display = "block";
-    
+    document.querySelector(".login_here_link").style.display = "block";
 
 
     document.querySelector(".feedback_log_in").textContent = "Ready when you are..."
-    document.querySelector("#wrapper").classList.remove("background_login");
+    document.querySelector("#wrapper").classList.toggle("background_login");
     document.querySelector("#wrapper").classList.add("background_register");
 
-
+    document.querySelector(".login_here_link").addEventListener("click", login_layout);
     document.querySelector(".register_button").addEventListener("click", register);
 
 
+}
+
+function login_layout () {
+    document.querySelector(".login_button").style.display = "block";
+    document.querySelector(".register_here_link").style.display = "block";
+    document.querySelector(".register_button").style.display = "none";
+    document.querySelector(".login_here_link").style.display = "none";
+
+
+    document.querySelector(".feedback_log_in").textContent = "Let the magic start!"
+    document.querySelector("#wrapper").classList.add("background_login");
+    document.querySelector("#wrapper").classList.remove("background_register");
 }
 
 
@@ -44,6 +57,7 @@ async function register () {
         const contacting_server = document.querySelector(".contacting_server");
         contacting_server.style.display = "block";
         document.querySelector("#wrapper").classList.toggle("blurred_background")
+        
 
         const username = document.querySelector(".username input").value;
         const password = document.querySelector(".password input").value;  
