@@ -29,7 +29,7 @@ body {
     font-size: 18px;
 }
 
-img {
+.top_text > img {
     height: 35px;
 }
 

@@ -1,3 +1,52 @@
+@font-face {
+    font-family: Roboto-Bold;
+    src:url("../fonts/RobotoCondensed-Bold.ttf")
+}
+
 #container_2 {
+    display: none;
+
+    justify-content: center;
+    flex-direction: column;
+
+   
+    
+}
+
+.quiz_background {
+    background: linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
+}
+
+.background_logo {
+    object-fit: cover;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.login_information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: white;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.login_information > p {
+    font-size: 20px;
+    font-family: Roboto-Regular;
+    margin-left: 10px;
+}
+
+.logout {
+    width: 80px;
+    height: 30px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-family: Roboto-Regular;
+}
+
+.answer_options {
     display: none;
 }

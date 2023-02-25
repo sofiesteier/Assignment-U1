@@ -13,10 +13,8 @@ async function login () {
     contacting_server.style.display = "none";
 
     if(response.ok) {
-        document.querySelector(".transparent_background").style.display = "none";
         const resource = await response.json();
-        console.log("rätt inlogg");
-        console.log(resource);
+        quiz_layout(resource.data.user_name);
     } else if (response.status === 404) {
         document.querySelector(".feedback_login").textContent = "Wrong user name or password."
         document.querySelector(".feedback_login").style.backgroundColor = "white";
@@ -34,7 +32,7 @@ function register_layout () {
 
 
     document.querySelector(".feedback_login").textContent = "Ready when you are..."
-    document.querySelector("#wrapper").classList.toggle("background_login");
+    document.querySelector("#wrapper").classList.remove("background_login");
     document.querySelector("#wrapper").classList.add("background_register");
 
     document.querySelector(".login_here_link").addEventListener("click", login_layout);
@@ -117,3 +115,4 @@ function create_statusCode (string) {
     p_statusCode.textContent = string;
     close_b.addEventListener("click", close_button);
 }
+
