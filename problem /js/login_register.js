@@ -77,7 +77,6 @@ async function register () {
             close_409_button.addEventListener("click", close_button);
 
         } else if (response.status === 418) {
-            console.log("teepot");
         }
     } catch (e) {
         console.log(e);
@@ -88,8 +87,8 @@ async function register () {
 
 }
 
-function close_button () {
-    const statusCode_409 = document.querySelector(".statusCode_409")
-    statusCode_409.style.display = "none";
-    document.querySelector("#wrapper").classList.toggle("blurred_background")
+function close_button (event) {
+   const element = event.target.parentElement;
+   element.style.display = "none";
+   document.querySelector("#wrapper").classList.toggle("blurred_background");
 }
