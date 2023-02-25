@@ -67,23 +67,15 @@ async function register () {
         
 
         if(response.ok) {
-            const resource = await response.json();
-            console.log(resource);
+            create_statusCode("Registration complete. Please proceed to login.")
         } else if (response.status === 409) {
-            const statusCode_409 = document.querySelector(".statusCode_409");
-            const close_409_button = document.querySelector(".close_409");
-            statusCode_409.style.display = "flex";
-            close_409_button.style.display = "block";
-            close_409_button.addEventListener("click", close_button);
-
+            create_statusCode("Sorry, that name is taken. Please try another one.");
         } else if (response.status === 418) {
+            create_statusCode("The server thinks it's not a teapot!")
         }
     } catch (e) {
         console.log(e);
     }
-
-    
- 
 
 }
 
@@ -91,4 +83,16 @@ function close_button (event) {
    const element = event.target.parentElement;
    element.style.display = "none";
    document.querySelector("#wrapper").classList.toggle("blurred_background");
+}
+
+function create_statusCode (string) {
+    const statusCode = document.querySelector(".statusCode");
+    const close_b = document.querySelector(".close_button");
+    const p_statusCode = document.querySelector(".statusCode > p");
+
+    statusCode.style.display = "flex";
+    close_b.style.display = "block";
+
+    p_statusCode.textContent = string;
+    close_b.addEventListener("click", close_button);
 }

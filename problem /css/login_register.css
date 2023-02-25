@@ -93,7 +93,7 @@ input {
     filter: blur(2px);
 }
 
-.statusCode_409 {
+.statusCode {
     position: absolute;
     height: 150px;
     width: 300px;
@@ -108,10 +108,11 @@ input {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    justify-content: center;
 
 }
 
-.close_409 {
+.close_button {
     width: 250px;
     height: 50px;
     font-family: Roboto-Regular;
