@@ -13,7 +13,7 @@ async function login () {
         console.log(response.statusText);
     } else {
         const resource = await response.json();
-        console.log("sucess!!");
+        console.log(response.status);
     }
 }
 
@@ -41,6 +41,10 @@ async function register () {
     
     
     try {
+        const contacting_server = document.querySelector(".contacting_server");
+        contacting_server.style.display = "block";
+        document.querySelector("#wrapper").classList.toggle("blurred_background")
+
         const username = document.querySelector(".username input").value;
         const password = document.querySelector(".password input").value;  
 
@@ -57,12 +61,23 @@ async function register () {
         };
         
         const post_request = new Request ("https://teaching.maumt.se/apis/access/", options);
-    
         const response =  await send_request(post_request);
+
+        contacting_server.style.display = "none";
+        
 
         if(response.ok) {
             const resource = await response.json();
             console.log(resource);
+        } else if (response.status === 409) {
+            const statusCode_409 = document.querySelector(".statusCode_409");
+            const close_409_button = document.querySelector(".close_409");
+            statusCode_409.style.display = "flex";
+            close_409_button.style.display = "block";
+            close_409_button.addEventListener("click", close_button);
+
+        } else if (response.status === 418) {
+            console.log("teepot");
         }
     } catch (e) {
         console.log(e);
@@ -71,4 +86,10 @@ async function register () {
     
  
 
+}
+
+function close_button () {
+    const statusCode_409 = document.querySelector(".statusCode_409")
+    statusCode_409.style.display = "none";
+    document.querySelector("#wrapper").classList.toggle("blurred_background")
 }

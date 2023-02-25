@@ -57,8 +57,6 @@ input {
     display: none;
 }
 
-
-
 .register_link {
     text-decoration: underline;
     font-family: Roboto-Regular;
@@ -68,12 +66,57 @@ input {
     cursor: pointer;
 }
 
-
-
-
-
 .box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
+.contacting_server {
+    height: 60px;
+    width: 400px;
+    border-radius: 30px;
+    border: 1px solid rgb(255, 204, 109);
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    background-color: white;
+    padding-top: 40px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Roboto-Regular;
+    backdrop-filter: blur(10px);
+    display: none;
+}
+
+.blurred_background {
+    filter: blur(2px);
+}
+
+.statusCode_409 {
+    position: absolute;
+    height: 150px;
+    width: 300px;
+    border-radius: 30px;
+    background-color: white;
+    border: 1px solid rgb(255, 204, 109);
+    font-size: 20px;
+    font-family: Roboto-Regular;
+    top: 40%;
+    left: 20%;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.close_409 {
+    width: 250px;
+    height: 50px;
+    font-family: Roboto-Regular;
+    font-size: 20px;
+    display: none;
+}
+
+
