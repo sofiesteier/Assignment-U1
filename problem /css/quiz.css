@@ -10,20 +10,13 @@
     flex-direction: column;
 }
 
-/*
-.transparent_background_quiz {
-    position: absolute;
-    border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.631);
-}
-*/
-
 .quiz_background {
     background: linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); 
     min-height: 100vh;
 }
 
-.background_logo {
+.background_logo,
+.dog_image {
     margin-top: 50px;
     border-radius: 30px;
     width: 100%;

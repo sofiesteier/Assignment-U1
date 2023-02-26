@@ -3,9 +3,8 @@
 document.querySelector(".logout").addEventListener("click", logout);
 
 
-
 async function quiz_layout (user_name) {
-
+    document.querySelector(".background_logo").style.display = "block";
     document.querySelector(".transparent_background_quiz").style.display = "flex"
     document.querySelector(".getting_random_image").style.display = "block";
     document.querySelector("#wrapper").classList.remove("background_login");
@@ -38,10 +37,12 @@ async function quiz_layout (user_name) {
     
     const resource = await response.json();
     console.log(resource);
+    document.querySelector(".background_logo").style.display = "none";
     document.querySelector(".getting_random_image").style.display = "none";
     document.querySelector(".transparent_background_quiz").style.display = "none";
 
-    document.querySelector(".background_logo").setAttribute("src", resource.message);
+
+    document.querySelector(".dog_image").setAttribute("src", resource.message);
     document.querySelector(".answer_options").style.display = "grid";
 
     const all_options = document.querySelectorAll(".answer_options > button");
@@ -94,7 +95,7 @@ function logout () {
     
     document.querySelector("#wrapper").classList.remove("quiz_background");
     document.querySelector("#wrapper").classList.add("background_login");
-    document.querySelector(".transparent_background_quiz").style.display = "flex";
+    document.querySelector(".transparent_background").style.display = "none";
 
 
     document.querySelector("#container_2").style.display = "none";
@@ -105,10 +106,12 @@ function logout () {
     
     username.value = "";
     password.value = "";
+
+    localStorage.removeItem("user_login");
 }
 
 function random_number(max) {
-    // Returnerar en random siffra mellan 0 och max - 1
+
     return Math.floor(max * Math.random());
 };
 

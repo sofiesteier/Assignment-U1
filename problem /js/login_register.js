@@ -7,12 +7,20 @@ async function login () {
     
     const username = document.querySelector(".username input").value;
     const password = document.querySelector(".password input").value;       
-    
+
+
     const response = await send_request(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${username}&password=${password}`);
     
     contacting_server.style.display = "none";
 
     if(response.ok) {
+        let user_data = {
+            userName: username,
+            password: password,
+        };
+        let JSON_user_data = JSON.stringify(user_data);
+        localStorage.setItem("user_login", JSON_user_data);
+
         const resource = await response.json();
         quiz_layout(resource.data.user_name);
     } else if (response.status === 404) {
@@ -20,8 +28,11 @@ async function login () {
         document.querySelector(".feedback_login").textContent = "Wrong user name or password."
         document.querySelector(".feedback_login").style.backgroundColor = "white";
      } else if (response.status === 418) {
-        create_statusCode("The server thinks it's not a teapot!")
-    }    
+        create_statusCode("I'm not a teapot!")
+    } else if (response.status === 400) {
+        create_statusCode("Try a new login.")
+    }
+
 }
 
 function register_layout () {
@@ -91,7 +102,7 @@ async function register () {
         } else if (response.status === 409) {
             create_statusCode("Sorry, that name is taken. Please try another one.");
         } else if (response.status === 418) {
-            create_statusCode("The server thinks it's not a teapot!")
+            create_statusCode("I'm not a teapot!")
         }
     } catch (e) {
         console.log(e);
