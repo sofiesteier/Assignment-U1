@@ -98,7 +98,7 @@ input {
     background-color: rgba(255, 255, 255, 0.631);
     height: 100vh;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     border-radius: 30px;
@@ -132,5 +132,5 @@ input {
     font-family: Roboto-Regular;
     padding: 10px;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
 }

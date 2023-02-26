@@ -5,14 +5,11 @@
 
 body {
     margin: 0;
-    height: 100%;
-
+    min-height: 100vh;
     background-color: black;
-    
 }
 
 #wrapper {
-    width: 100vw;
     border-radius: 30px;
     box-sizing: border-box;
     padding-left: 20px;
