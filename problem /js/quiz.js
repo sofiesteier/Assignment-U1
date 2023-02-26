@@ -2,6 +2,7 @@
 
 async function quiz_layout (user_name) {
 
+    
     document.querySelector(".transparent_background").style.display = "none";
     const contacting_server = document.querySelector(".contacting_server");
     contacting_server.style.display = "block";
@@ -18,3 +19,9 @@ async function quiz_layout (user_name) {
 
 
 }
+
+
+
+
+
+ 

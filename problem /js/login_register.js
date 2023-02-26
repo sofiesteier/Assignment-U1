@@ -16,6 +16,7 @@ async function login () {
         const resource = await response.json();
         quiz_layout(resource.data.user_name);
     } else if (response.status === 404) {
+        document.querySelector(".transparent_background").style.display = "none";
         document.querySelector(".feedback_login").textContent = "Wrong user name or password."
         document.querySelector(".feedback_login").style.backgroundColor = "white";
      } else if (response.status === 418) {

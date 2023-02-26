@@ -5,11 +5,12 @@
 
 .background_login {
     background: linear-gradient(0deg, rgba(131,58,180,1) 16%, rgba(200,32,32,1) 44%, rgba(252,176,69,1) 76%);
+    height: 100vh;
 }
 
 .background_register {
     background: linear-gradient(0deg, rgba(131,58,180,1) 0%, rgba(200,32,32,1) 0%, rgba(252,176,69,1) 92%);
-     
+    height: 100vh;
 }
 
 #container_1 {
@@ -18,8 +19,7 @@
     justify-content: center;
     flex-direction: column;
 
-    height: 550px;
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
 header {
@@ -128,4 +128,9 @@ input {
     display: none;
 }
 
-
+.footer_container_1 {
+    font-family: Roboto-Regular;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+}
