@@ -35,6 +35,7 @@ async function login () {
 
 function register_layout () {
     document.querySelector(".username input").value = "";
+    document.querySelector(".password input").value = "";
     document.querySelector(".feedback_login").style.backgroundColor = "";
     document.querySelector(".login_button").style.display = "none";
     document.querySelector(".register_here_link").style.display = "none";
@@ -53,6 +54,7 @@ function register_layout () {
 
 function login_layout () {
     document.querySelector(".username input").value = "";
+    document.querySelector(".password input").value = "";
     document.querySelector(".register_button").style.display = "none";
     document.querySelector(".login_here_link").style.display = "none";
 
