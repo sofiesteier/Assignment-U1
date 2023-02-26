@@ -23,28 +23,26 @@ async function login () {
 
         const resource = await response.json();
         quiz_layout(resource.data.user_name);
-    } else if (response.status === 404) {
+    } else if (response.status === 404 || 400) {
         document.querySelector(".transparent_background").style.display = "none";
         document.querySelector(".feedback_login").textContent = "Wrong user name or password."
         document.querySelector(".feedback_login").style.backgroundColor = "white";
      } else if (response.status === 418) {
         create_statusCode("I'm not a teapot!")
-    } else if (response.status === 400) {
-        create_statusCode("Try a new login.")
-    }
+    } 
 
 }
 
 function register_layout () {
+    document.querySelector(".username input").value = "";
     document.querySelector(".feedback_login").style.backgroundColor = "";
     document.querySelector(".login_button").style.display = "none";
     document.querySelector(".register_here_link").style.display = "none";
+    document.querySelector("#wrapper").classList.remove("background_login");
+
     document.querySelector(".register_button").style.display = "block";
     document.querySelector(".login_here_link").style.display = "block";
-
-
     document.querySelector(".feedback_login").textContent = "Ready when you are..."
-    document.querySelector("#wrapper").classList.remove("background_login");
     document.querySelector("#wrapper").classList.add("background_register");
 
     document.querySelector(".login_here_link").addEventListener("click", login_layout);
@@ -54,11 +52,12 @@ function register_layout () {
 }
 
 function login_layout () {
-    document.querySelector(".login_button").style.display = "block";
-    document.querySelector(".register_here_link").style.display = "block";
+    document.querySelector(".username input").value = "";
     document.querySelector(".register_button").style.display = "none";
     document.querySelector(".login_here_link").style.display = "none";
 
+    document.querySelector(".login_button").style.display = "block";
+    document.querySelector(".register_here_link").style.display = "block";
 
     document.querySelector(".feedback_login").textContent = "Let the magic start!"
     document.querySelector("#wrapper").classList.add("background_login");
@@ -99,7 +98,7 @@ async function register () {
         if(response.ok) {
             const resource = await response.json();
             create_statusCode("Registration complete. Please proceed to login.")
-        } else if (response.status === 409) {
+        } else if (response.status === 409 || 400) {
             create_statusCode("Sorry, that name is taken. Please try another one.");
         } else if (response.status === 418) {
             create_statusCode("I'm not a teapot!")
