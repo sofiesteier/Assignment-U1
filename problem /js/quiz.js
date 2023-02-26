@@ -92,7 +92,8 @@ function create_statusCode_quiz (string) {
 }
 
 function logout () {
-    
+    document.querySelector(".feedback_login").style.backgroundColor = "";
+    document.querySelector(".feedback_login").textContent = "Ready when you are..."
     document.querySelector("#wrapper").classList.remove("quiz_background");
     document.querySelector("#wrapper").classList.add("background_login");
     document.querySelector(".transparent_background").style.display = "none";
