@@ -8,7 +8,6 @@ async function login () {
     const username = document.querySelector(".username input").value;
     const password = document.querySelector(".password input").value;       
 
-
     const response = await send_request(`https://teaching.maumt.se/apis/access/?action=check_credentials&user_name=${username}&password=${password}`);
     
     contacting_server.style.display = "none";
@@ -23,14 +22,13 @@ async function login () {
 
         const resource = await response.json();
         quiz_layout(resource.data.user_name);
-    } else if (response.status === 404 || 400) {
+    } else if (response.status === 404 || response.status === 400) {
         document.querySelector(".transparent_background").style.display = "none";
         document.querySelector(".feedback_login").textContent = "Wrong user name or password."
         document.querySelector(".feedback_login").style.backgroundColor = "white";
      } else if (response.status === 418) {
         create_statusCode("I'm not a teapot!")
     } 
-
 }
 
 function register_layout () {
@@ -48,8 +46,6 @@ function register_layout () {
 
     document.querySelector(".login_here_link").addEventListener("click", login_layout);
     document.querySelector(".register_button").addEventListener("click", register);
-
-
 }
 
 function login_layout () {
@@ -66,8 +62,6 @@ function login_layout () {
     document.querySelector("#wrapper").classList.remove("background_register");
 }
 
-
-
 async function register () {
     
     try {
@@ -75,7 +69,6 @@ async function register () {
         contacting_server.style.display = "block";
         document.querySelector(".transparent_background").style.display = "flex";
         
-
         const username = document.querySelector(".username input").value;
         const password = document.querySelector(".password input").value;  
 
@@ -96,11 +89,10 @@ async function register () {
 
         contacting_server.style.display = "none";
         
-
         if(response.ok) {
             const resource = await response.json();
             create_statusCode("Registration complete. Please proceed to login.")
-        } else if (response.status === 409 || 400) {
+        } else if (response.status === 409 || response.status === 400) {
             create_statusCode("Sorry, that name is taken. Please try another one.");
         } else if (response.status === 418) {
             create_statusCode("I'm not a teapot!")
@@ -108,7 +100,6 @@ async function register () {
     } catch (e) {
         console.log(e);
     }
-
 }
 
 function close_button (event) {

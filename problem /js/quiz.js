@@ -2,8 +2,8 @@
 
 document.querySelector(".logout").addEventListener("click", logout);
 
-
 async function quiz_layout (user_name) {
+    document.querySelector(".dog_image").removeAttribute("src");
     document.querySelector(".background_logo").style.display = "block";
     document.querySelector(".transparent_background_quiz").style.display = "flex"
     document.querySelector(".getting_random_image").style.display = "block";
@@ -13,34 +13,23 @@ async function quiz_layout (user_name) {
     document.querySelector("#container_2").style.display = "flex";
     document.querySelector(".contacting_server").style.display = "none";
 
-
-    
     document.querySelector(".login_information > p").textContent = user_name;
 
-    console.log(ALL_BREEDS.length);
     let for_dogs = [];
     for (let i = 0; i < 4; i++) {
         const dog = ALL_BREEDS.splice(random_number(ALL_BREEDS.length), 1);
         for_dogs.push(dog);
-        
     }
-    
-    console.log(ALL_BREEDS.length);
 
     const correct_dog = for_dogs[random_number(for_dogs.length)][0];
-    console.log(correct_dog);
 
     const request_breed = new Request (`https://dog.ceo/api/breed/${correct_dog.url}/images/random`)
     const response = await send_request(request_breed);
-    console.log(response);
-
-    
     const resource = await response.json();
-    console.log(resource);
+
     document.querySelector(".background_logo").style.display = "none";
     document.querySelector(".getting_random_image").style.display = "none";
     document.querySelector(".transparent_background_quiz").style.display = "none";
-
 
     document.querySelector(".dog_image").setAttribute("src", resource.message);
     document.querySelector(".answer_options").style.display = "grid";
@@ -58,14 +47,11 @@ async function quiz_layout (user_name) {
 
     function quiz (event) {
         if(event.target.textContent === correct_dog.name) {
-            console.log("correct!");
             create_statusCode_quiz("CORRECT!");
         } else {
-            console.log("try again");
             create_statusCode_quiz("Sorry, that's not right...");
         }
      }
-    
 }
 
 function close_button_quiz (event) {
@@ -98,7 +84,6 @@ function logout () {
     document.querySelector("#wrapper").classList.add("background_login");
     document.querySelector(".transparent_background").style.display = "none";
 
-
     document.querySelector("#container_2").style.display = "none";
     document.querySelector("#container_1").style.display = "flex";
 
@@ -112,7 +97,6 @@ function logout () {
 }
 
 function random_number(max) {
-
     return Math.floor(max * Math.random());
 };
 

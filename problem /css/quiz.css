@@ -15,9 +15,15 @@
     min-height: 100vh;
 }
 
-.background_logo,
+.background_logo {
+    margin-top: 50px;
+    border-radius: 30px;
+    width: 100%;
+}
+
 .dog_image {
     margin-top: 50px;
+    margin-bottom: 10px;
     border-radius: 30px;
     width: 100%;
 }
